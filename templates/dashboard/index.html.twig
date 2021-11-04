@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<table class="table">
+
+    <tbody>
+        <tr>
+            <th>Requests</th>
+            <th>{{requests}}</th>
+        </t>
+          <tr>
+            <th>Users</th>
+            <th>{{users}}</th>
+        </t>
+          <tr>
+            <th>Teams</th>
+            <th>{{teams}}</th>
+        </t>
+    </tbody>
+</table>
+{% endblock %}

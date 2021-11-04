@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Office List{% endblock %}
+
+{% block body %}
+ {{form_start(office_form)}}
+ <button name="submit" >Save</button>
+  {{form_end(office_form)}}
+{% endblock %}

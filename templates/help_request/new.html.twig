@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New HelpRequest{% endblock %}
+
+{% block body %}
+    <h1>Create new HelpRequest</h1>
+
+    {{ include('help_request/_form.html.twig') }}
+
+    <a href="{{ path('help_request_index') }}">back to list</a>
+{% endblock %}

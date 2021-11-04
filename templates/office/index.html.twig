@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Office List{% endblock %}
+
+{% block body %}
+
+{% for office in offices %}
+
+{{office.name}}<br>
+{{office.description}}<br>
+    
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HelpRequest index{% endblock %}
+
+{% block body %}
+    <h1>HelpRequest index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Requested At</th>
+                 <th>Problem Type</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Assigned At</th>
+                <th>Responded At</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for help_request in help_requests %}
+            <tr>
+                <td>{{ help_request.id }}</td>
+                <td>{{ help_request.requestedAt ? help_request.requestedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ help_request.problem }}</td>
+               
+                <td>{{ help_request.description }}</td>
+               {% if help_request.status==0 %}
+                   <td>New</td>
+               {% elseif help_request.status==1  %}
+                     <td>Assigned</td>
+               {% else %}
+                    <td>Closed</td>
+               {% endif %}
+              
+                <td>{{ help_request.assignedAt ? help_request.assignedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ help_request.respondedAt ? help_request.respondedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('help_request_show', {'id': help_request.id}) }}">show</a>
+                    <a href="{{ path('help_request_edit', {'id': help_request.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('help_request_new') }}">Create new</a>
+{% endblock %}

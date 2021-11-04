@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HelpRequest{% endblock %}
+
+{% block body %}
+    <h1>HelpRequest</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ help_request.id }}</td>
+            </tr>
+            <tr>
+                <th>RequestedAt</th>
+                <td>{{ help_request.requestedAt ? help_request.requestedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ help_request.description }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ help_request.status }}</td>
+            </tr>
+            <tr>
+                <th>AssignedAt</th>
+                <td>{{ help_request.assignedAt ? help_request.assignedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>RespondedAt</th>
+                <td>{{ help_request.respondedAt ? help_request.respondedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('help_request_index') }}">back to list</a>
+
+    <a href="{{ path('help_request_edit', {'id': help_request.id}) }}">edit</a>
+
+    {{ include('help_request/_delete_form.html.twig') }}
+{% endblock %}
